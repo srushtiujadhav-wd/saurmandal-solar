@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saur Mandal Solar - Clean Energy Solutions ☀️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #fb923c 50%, #fdba74 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.2);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #fb923c;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #fb923c;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .solar-panel-animation {
+            animation: solarGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes solarGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.1); }
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: #6b7280;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #fb923c, #fbbf24);
+            color: white;
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        /* Enhanced slider styling */
+        .slider {
+            background: linear-gradient(to right, #fb923c 0%, #fb923c var(--value, 0%), #e5e7eb var(--value, 0%), #e5e7eb 100%);
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #fb923c;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .slider::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #fb923c;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Property and system type card styling */
+        .property-card, .system-card {
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover, .system-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(251, 146, 60, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-amber-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="showPage('home')">
+                        <span class="text-2xl mr-2">☀️</span>
+                        <span class="text-xl font-bold text-gray-900">Saur Mandal Solar</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" onclick="showPage('home')" class="nav-link text-gray-900 font-medium">Home</a>
+                        <a href="#" onclick="showPage('services')" class="nav-link text-gray-600 font-medium">Services</a>
+                        <a href="#" onclick="showPage('products')" class="nav-link text-gray-600 font-medium">Solar Products</a>
+                        <a href="#" onclick="showPage('about')" class="nav-link text-gray-600 font-medium">About</a>
+                        <a href="#" onclick="showPage('contact')" class="nav-link text-gray-600 font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" onclick="showPage('home')" class="block px-3 py-2 text-gray-900 font-medium">Home</a>
+                <a href="#" onclick="showPage('services')" class="block px-3 py-2 text-gray-600 font-medium">Services</a>
+                <a href="#" onclick="showPage('products')" class="block px-3 py-2 text-gray-600 font-medium">Solar Products</a>
+                <a href="#" onclick="showPage('about')" class="block px-3 py-2 text-gray-600 font-medium">About</a>
+                <a href="#" onclick="showPage('contact')" class="block px-3 py-2 text-gray-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page-section active">
+        <!-- Hero Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Content -->
+                    <div class="fade-in">
+                        <div class="flex items-center mb-6">
+                            <span class="text-4xl mr-3">☀️</span>
+                            <span class="text-2xl font-bold text-gray-900">Saur Mandal Solar</span>
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight">
+                            Powering tomorrow with Clean Solar Energy
+                        </h1>
+                        <p class="text-lg md:text-xl mb-8 text-gray-600 leading-relaxed">
+                            Transform your home or business with sustainable solar solutions. We design, install, and maintain solar systems that reduce your electricity bills while protecting the environment.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="showPage('contact')" class="bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                                Get Free Quote
+                            </button>
+                            <button onclick="document.querySelector('.solar-calculator').scrollIntoView({behavior: 'smooth'})" class="border-2 border-orange-400 text-orange-500 hover:bg-orange-400 hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+                                Solar Calculator
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Image -->
+                    <div class="lg:pl-8">
+                        <div class="relative">
+                            <img 
+                                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" 
+                                alt="Solar panels on residential rooftop with blue sky background" 
+                                class="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                            />
+                            <!-- Fallback content if image fails to load -->
+                            <div class="hidden w-full h-96 lg:h-[500px] bg-gradient-to-br from-blue-400 to-orange-400 rounded-2xl shadow-2xl flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <div class="text-6xl mb-4">☀️</div>
+                                    <div class="text-2xl font-bold">Solar Energy Solutions</div>
+                                    <div class="text-lg opacity-80">Clean • Reliable • Sustainable</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Floating stats cards -->
+                            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+                                <div class="text-2xl font-bold text-orange-500">500+</div>
+                                <div class="text-sm text-gray-600">Happy Customers</div>
+                            </div>
+                            
+                            <div class="absolute -top-6 -right-6 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+                                <div class="text-2xl font-bold text-green-500">25MW+</div>
+                                <div class="text-sm text-gray-600">Installed Capacity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Solar Savings Calculator -->
+        <section class="solar-calculator py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">🧮 Advanced Solar Savings Calculator</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Get precise calculations for your solar investment with our enhanced calculator featuring detailed analysis and real-time updates
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <!-- Enhanced Calculator Form -->
+                        <div class="p-8 lg:p-12">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-8">Calculate Your Solar Potential</h3>
+                            
+                            <div class="space-y-6">
+                                <!-- Monthly Electricity Bill with Range Slider -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Monthly Electricity Bill: ₹<span id="billDisplay">5000</span>
+                                    </label>
+                                    <input 
+                                        type="range" 
+                                        id="monthlyBill" 
+                                        min="1000" 
+                                        max="50000" 
+                                        step="500" 
+                                        value="5000"
+                                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                                        oninput="updateBillDisplay(); calculateSolar()"
+                                    >
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>₹1,000</span>
+                                        <span>₹50,000</span>
+                                    </div>
+                                </div>
+
+                                <!-- Property Type with Icons -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-3">
+                                        Property Type
+                                    </label>
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <label class="property-option cursor-pointer">
+                                            <input type="radio" name="propertyType" value="residential" class="sr-only" checked onchange="calculateSolar()">
+                                            <div class="property-card border-2 border-gray-200 rounded-lg p-4 text-center hover:border-orange-400 transition-colors">
+                                                <div class="text-2xl mb-2">🏠</div>
+                                                <div class="text-sm font-medium">Residential</div>
+                                            </div>
+                                        </label>
+                                        <label class="property-option cursor-pointer">
+                                            <input type="radio" name="propertyType" value="commercial" class="sr-only" onchange="calculateSolar()">
+                                            <div class="property-card border-2 border-gray-200 rounded-lg p-4 text-center hover:border-orange-400 transition-colors">
+                                                <div class="text-2xl mb-2">🏢</div>
+                                                <div class="text-sm font-medium">Commercial</div>
+                                            </div>
+                                        </label>
+                                        <label class="property-option cursor-pointer">
+                                            <input type="radio" name="propertyType" value="industrial" class="sr-only" onchange="calculateSolar()">
+                                            <div class="property-card border-2 border-gray-200 rounded-lg p-4 text-center hover:border-orange-400 transition-colors">
+                                                <div class="text-2xl mb-2">🏭</div>
+                                                <div class="text-sm font-medium">Industrial</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Roof Area with Slider -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Available Roof Area: <span id="areaDisplay">800</span> sq ft
+                                    </label>
+                                    <input 
+                                        type="range" 
+                                        id="roofArea" 
+                                        min="200" 
+                                        max="5000" 
+                                        step="50" 
+                                        value="800"
+                                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                                        oninput="updateAreaDisplay(); calculateSolar()"
+                                    >
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>200 sq ft</span>
+                                        <span>5,000 sq ft</span>
+                                    </div>
+                                </div>
+
+                                <!-- Enhanced Location Selection -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Location (State)
+                                    </label>
+                                    <select 
+                                        id="location" 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                                        onchange="calculateSolar()"
+                                    >
+                                        <option value="maharashtra">Maharashtra (4.5 hrs sun/day)</option>
+                                        <option value="gujarat">Gujarat (5.2 hrs sun/day)</option>
+                                        <option value="rajasthan">Rajasthan (5.8 hrs sun/day)</option>
+                                        <option value="karnataka">Karnataka (4.8 hrs sun/day)</option>
+                                        <option value="tamilnadu">Tamil Nadu (4.6 hrs sun/day)</option>
+                                        <option value="andhra">Andhra Pradesh (5.0 hrs sun/day)</option>
+                                        <option value="telangana">Telangana (5.1 hrs sun/day)</option>
+                                        <option value="punjab">Punjab (4.9 hrs sun/day)</option>
+                                        <option value="haryana">Haryana (5.0 hrs sun/day)</option>
+                                        <option value="other">Other States (4.5 hrs sun/day)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Enhanced System Type -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-3">
+                                        System Type
+                                    </label>
+                                    <div class="space-y-3">
+                                        <label class="system-option cursor-pointer">
+                                            <input type="radio" name="systemType" value="grid-tied" class="sr-only" checked onchange="calculateSolar()">
+                                            <div class="system-card border-2 border-gray-200 rounded-lg p-4 hover:border-orange-400 transition-colors">
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <div class="font-medium">Grid-Tied System</div>
+                                                        <div class="text-sm text-gray-600">Lower cost, net metering</div>
+                                                    </div>
+                                                    <div class="text-green-600 font-semibold">₹60k/kW</div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <label class="system-option cursor-pointer">
+                                            <input type="radio" name="systemType" value="hybrid" class="sr-only" onchange="calculateSolar()">
+                                            <div class="system-card border-2 border-gray-200 rounded-lg p-4 hover:border-orange-400 transition-colors">
+                                                <div class="flex items-center justify-between">
+                                                    <div>
+                                                        <div class="font-medium">Hybrid System (Battery)</div>
+                                                        <div class="text-sm text-gray-600">Backup power, energy storage</div>
+                                                    </div>
+                                                    <div class="text-orange-600 font-semibold">₹85k/kW</div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Electricity Rate -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Electricity Rate: ₹<span id="rateDisplay">6</span>/unit
+                                    </label>
+                                    <input 
+                                        type="range" 
+                                        id="electricityRate" 
+                                        min="3" 
+                                        max="12" 
+                                        step="0.5" 
+                                        value="6"
+                                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                                        oninput="updateRateDisplay(); calculateSolar()"
+                                    >
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>₹3/unit</span>
+                                        <span>₹12/unit</span>
+                                    </div>
+                                </div>
+
+                                <button 
+                                    onclick="showPage('contact')" 
+                                    class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-lg"
+                                >
+                                    Get Detailed Quote
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Results Panel -->
+                        <div class="bg-gradient-to-br from-orange-400 to-yellow-500 p-8 lg:p-12 text-white">
+                            <h3 class="text-2xl font-bold mb-8">Your Detailed Solar Analysis</h3>
+                            
+                            <div id="calculatorResults" class="space-y-4">
+                                <!-- System Size -->
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">Recommended System Size</span>
+                                        <span class="text-xl font-bold" id="systemSize">5 kW</span>
+                                    </div>
+                                    <div class="text-xs text-orange-100" id="systemDetails">
+                                        20 panels × 250W each
+                                    </div>
+                                </div>
+
+                                <!-- System Cost -->
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">Total Investment</span>
+                                        <span class="text-xl font-bold" id="systemCost">₹3,00,000</span>
+                                    </div>
+                                    <div class="text-xs text-orange-100">
+                                        Including installation, GST & subsidy
+                                    </div>
+                                </div>
+
+                                <!-- Monthly Generation -->
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">Monthly Generation</span>
+                                        <span class="text-xl font-bold" id="monthlyGeneration">675 units</span>
+                                    </div>
+                                    <div class="text-xs text-orange-100">
+                                        Average electricity production
+                                    </div>
+                                </div>
+
+                                <!-- Monthly Savings -->
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">Monthly Savings</span>
+                                        <span class="text-xl font-bold" id="monthlySavings">₹4,050</span>
+                                    </div>
+                                    <div class="text-xs text-orange-100">
+                                        <span id="savingsPercentage">81%</span> reduction in electricity bill
+                                    </div>
+                                </div>
+
+                                <!-- Payback Period -->
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">Payback Period</span>
+                                        <span class="text-xl font-bold" id="paybackPeriod">6.2 years</span>
+                                    </div>
+                                    <div class="text-xs text-orange-100">
+                                        Time to recover investment
+                                    </div>
+                                </div>
+
+                                <!-- 25-Year Savings -->
+                                <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">25-Year Savings</span>
+                                        <span class="text-xl font-bold" id="totalSavings">₹21,15,000</span>
+                                    </div>
+                                    <div class="text-xs text-orange-100">
+                                        Total lifetime savings
+                                    </div>
+                                </div>
+
+                                <!-- ROI -->
+                                <div class="bg-green-500/30 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">Return on Investment</span>
+                                        <span class="text-xl font-bold" id="roi">705%</span>
+                                    </div>
+                                    <div class="text-xs text-green-100">
+                                        Over 25 years
+                                    </div>
+                                </div>
+
+                                <!-- CO2 Reduction -->
+                                <div class="bg-green-500/30 backdrop-blur-sm rounded-xl p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-base font-medium">CO₂ Reduction</span>
+                                        <span class="text-xl font-bold" id="co2Reduction">138 tons</span>
+                                    </div>
+                                    <div class="text-xs text-green-100">
+                                        Environmental impact over 25 years
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Enhanced Additional Info -->
+                            <div class="mt-6 space-y-3">
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <h4 class="font-semibold mb-1 text-sm">💰 Government Subsidy</h4>
+                                    <p class="text-xs text-orange-100">
+                                        Up to ₹78,000 subsidy available for residential systems
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <h4 class="font-semibold mb-1 text-sm">⚡ Net Metering</h4>
+                                    <p class="text-xs text-orange-100">
+                                        Sell excess power back to grid at ₹<span id="netMeteringRate">3.5</span>/unit
+                                    </p>
+                                </div>
+                                <div class="p-3 bg-white/10 rounded-lg">
+                                    <h4 class="font-semibold mb-1 text-sm">🌱 Environmental Impact</h4>
+                                    <p class="text-xs text-orange-100">
+                                        Equivalent to planting <span id="treesEquivalent">3,450</span> trees
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Benefits Grid -->
+                <div class="grid md:grid-cols-4 gap-6 mt-16">
+                    <div class="text-center bg-white rounded-xl p-6 shadow-lg">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Instant Savings</h3>
+                        <p class="text-gray-600 text-sm">Start saving from day one of installation</p>
+                    </div>
+
+                    <div class="text-center bg-white rounded-xl p-6 shadow-lg">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">25-Year Warranty</h3>
+                        <p class="text-gray-600 text-sm">Long-term protection and performance guarantee</p>
+                    </div>
+
+                    <div class="text-center bg-white rounded-xl p-6 shadow-lg">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.66c.03-.08.06-.17.09-.25C6.84 17.25 9 15 12 15s5.16 2.25 6.25 4.09c.03.08.06.17.09.25l.95 2.66 1.89-.66C18.1 16.17 16 10 17 8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Eco-Friendly</h3>
+                        <p class="text-gray-600 text-sm">Reduce carbon footprint significantly</p>
+                    </div>
+
+                    <div class="text-center bg-white rounded-xl p-6 shadow-lg">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">High ROI</h3>
+                        <p class="text-gray-600 text-sm">Excellent return on investment over time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Solar Solutions</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Comprehensive solar services tailored to meet your energy needs
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-8 shadow-lg card-hover border border-yellow-200">
+                        <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Residential Solar</h3>
+                        <p class="text-gray-600 mb-6">
+                            Transform your home with custom solar panel installations designed to maximize energy savings.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                3kW to 15kW systems
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                25-year warranty
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Net metering support
+                            </li>
+                        </ul>
+                        <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                            Get Quote
+                        </button>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8 shadow-lg card-hover border border-orange-200">
+                        <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Commercial Solar</h3>
+                        <p class="text-gray-600 mb-6">
+                            Large-scale solar installations for businesses and industrial facilities.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                10kW to 1MW+ systems
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Advanced monitoring
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Financing options
+                            </li>
+                        </ul>
+                        <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                            Get Quote
+                        </button>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-8 shadow-lg card-hover border border-red-200">
+                        <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Maintenance & Support</h3>
+                        <p class="text-gray-600 mb-6">
+                            Comprehensive maintenance packages to keep your solar system running efficiently.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                24/7 monitoring
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Regular cleaning
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Emergency repairs
+                            </li>
+                        </ul>
+                        <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                            Get Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Solar Products & Kits</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Complete solar solutions for every need and budget
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 3kW Residential Kit -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                alt="3kW residential solar panel system installed on house roof" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                onerror="this.src='https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Solar panels on residential rooftop';"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">3kW Residential Kit</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Perfect for small homes. Includes panels, inverter, and all accessories.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-orange-400">₹1,80,000</span>
+                                <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">Save ₹30k</span>
+                            </div>
+                            <button onclick="showPage('products')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 5kW Residential Kit -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                alt="5kW residential solar panel system with battery backup" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                onerror="this.src='https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Modern solar panel installation on residential home';"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">5kW Residential Kit</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Ideal for medium homes. Includes hybrid inverter and battery backup.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-orange-400">₹2,85,000</span>
+                                <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">Save ₹40k</span>
+                            </div>
+                            <button onclick="showPage('products')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 10kW Commercial Kit -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img 
+                                src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                alt="10kW commercial solar panel installation on business building" 
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                onerror="this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Large commercial solar panel array';"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">10kW Commercial Kit</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Perfect for businesses. High-efficiency panels with monitoring.</p>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-2xl font-bold text-orange-400">₹5,40,000</span>
+                                <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm">Save ₹60k</span>
+                            </div>
+                            <button onclick="showPage('products')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button onclick="showPage('products')" class="bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                        View All Products
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose Saur Mandal Solar?</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Experience the difference with India's trusted solar energy experts
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-xl shadow-lg card-hover border border-yellow-200">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Premium Quality</h3>
+                        <p class="text-gray-600">Only the best components with 25-year warranties</p>
+                    </div>
+
+                    <div class="text-center bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl shadow-lg card-hover border border-orange-200">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Expert Team</h3>
+                        <p class="text-gray-600">Certified professionals with years of experience</p>
+                    </div>
+
+                    <div class="text-center bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-xl shadow-lg card-hover border border-red-200">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Complete Support</h3>
+                        <p class="text-gray-600">From consultation to maintenance, we're with you</p>
+                    </div>
+
+                    <div class="text-center bg-gradient-to-br from-pink-50 to-purple-50 p-6 rounded-xl shadow-lg card-hover border border-pink-200">
+                        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Guaranteed Savings</h3>
+                        <p class="text-gray-600">Reduce electricity bills by up to 90%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews Section -->
+        <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Don't just take our word for it. Here's what our satisfied customers have to say about their solar experience with us.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 mb-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">
+                            "Excellent service from start to finish! Our 5kW system has been running perfectly for 8 months now. My electricity bill has dropped by 85%. The team was professional and completed installation in just 2 days."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold">RK</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Rajesh Kumar</h4>
+                                <p class="text-sm text-gray-500">Pune, Maharashtra</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 mb-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">
+                            "Best investment we've made! The 10kW commercial system for our factory has reduced our monthly electricity costs by ₹45,000. ROI is exactly as promised. Highly recommend Saur Mandal Solar!"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold">SP</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Suresh Patil</h4>
+                                <p class="text-sm text-gray-500">Nashik, Maharashtra</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 card-hover border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 mb-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6 italic">
+                            "Amazing support team! They helped us with all government paperwork and subsidies. Our 3kW system with battery backup works flawlessly. Even during power cuts, we have electricity. Great job!"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-semibold">AS</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Anita Sharma</h4>
+                                <p class="text-sm text-gray-500">Mumbai, Maharashtra</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Stats -->
+                <div class="mt-16 bg-white rounded-2xl shadow-lg p-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-3xl font-bold text-orange-500 mb-2">4.9/5</div>
+                            <div class="text-gray-600">Average Rating</div>
+                            <div class="flex justify-center mt-2">
+                                <div class="flex text-yellow-400">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                    </svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-orange-500 mb-2">500+</div>
+                            <div class="text-gray-600">Happy Customers</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-orange-500 mb-2">99%</div>
+                            <div class="text-gray-600">Satisfaction Rate</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-orange-500 mb-2">25MW+</div>
+                            <div class="text-gray-600">Installed Capacity</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-orange-400 to-yellow-500">
+            <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Go Solar?</h2>
+                <p class="text-xl text-orange-100 mb-8">
+                    Join thousands of satisfied customers who have made the switch to clean, renewable energy
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="showPage('contact')" class="bg-white text-orange-500 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+                        Get Free Consultation
+                    </button>
+                    <button onclick="showPage('about')" class="border-2 border-white text-white hover:bg-white hover:text-orange-500 font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+                        Learn More About Us
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services-page" class="page-section">
+        <section class="pt-24 pb-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Solar Solutions</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Comprehensive solar services tailored to meet your energy needs and budget. From residential rooftops to large commercial installations, we deliver excellence in every project.
+                    </p>
+                </div>
+                
+                <!-- Main Services Grid -->
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-8 shadow-lg card-hover border border-yellow-200">
+                        <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Residential Solar</h3>
+                        <p class="text-gray-600 mb-6">
+                            Transform your home with custom solar panel installations. Our residential solutions are designed to maximize energy savings while seamlessly integrating with your home's architecture.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                3kW to 15kW system options
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                25-year performance warranty
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Net metering support
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Battery backup options
+                            </li>
+                        </ul>
+                        <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                            Get Residential Quote
+                        </button>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8 shadow-lg card-hover border border-orange-200">
+                        <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Commercial Solar</h3>
+                        <p class="text-gray-600 mb-6">
+                            Large-scale solar installations for businesses, warehouses, and industrial facilities. Maximize your ROI with our commercial-grade solar energy systems.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                10kW to 1MW+ systems
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Advanced monitoring systems
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Financing options available
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Comprehensive O&M packages
+                            </li>
+                        </ul>
+                        <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                            Get Commercial Quote
+                        </button>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-8 shadow-lg card-hover border border-red-200">
+                        <div class="w-16 h-16 bg-pink-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Maintenance & Support</h3>
+                        <p class="text-gray-600 mb-6">
+                            Comprehensive maintenance packages to keep your solar system running at peak efficiency. 24/7 monitoring and rapid response service.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                24/7 system monitoring
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Regular cleaning & inspection
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Performance optimization
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Emergency repair service
+                            </li>
+                        </ul>
+                        <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                            Get Maintenance Quote
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Process Section -->
+                <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 md:p-12">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Simple 4-Step Process</h2>
+                        <p class="text-lg text-gray-600">From consultation to installation, we make going solar easy and hassle-free</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                                    <span class="text-2xl font-bold text-white">1</span>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Free Consultation</h3>
+                            <p class="text-gray-600">Our experts assess your energy needs and roof suitability</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                                    <span class="text-2xl font-bold text-white">2</span>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Custom Design</h3>
+                            <p class="text-gray-600">Personalized solar system design for your requirements</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                                    <span class="text-2xl font-bold text-white">3</span>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Professional Installation</h3>
+                            <p class="text-gray-600">Certified technicians install your system in 1-3 days</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                                    <span class="text-2xl font-bold text-white">4</span>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Start Saving</h3>
+                            <p class="text-gray-600">Begin generating clean energy and watch bills drop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="products-page" class="page-section">
+        <section class="pt-24 pb-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Solar Products & Kits</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Complete solar solutions for every need. From residential rooftops to commercial installations, 
+                        we offer premium quality solar products with guaranteed performance and reliability.
+                    </p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center mb-12 bg-gray-100 rounded-xl p-2 max-w-2xl mx-auto">
+                    <button onclick="filterProducts('all')" class="filter-btn active px-6 py-3 rounded-lg font-medium transition-all duration-300 mx-1 mb-2">All Products</button>
+                    <button onclick="filterProducts('residential')" class="filter-btn px-6 py-3 rounded-lg font-medium transition-all duration-300 mx-1 mb-2">Residential</button>
+                    <button onclick="filterProducts('commercial')" class="filter-btn px-6 py-3 rounded-lg font-medium transition-all duration-300 mx-1 mb-2">Commercial</button>
+                    <button onclick="filterProducts('accessories')" class="filter-btn px-6 py-3 rounded-lg font-medium transition-all duration-300 mx-1 mb-2">Accessories</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+                    
+                    <!-- Residential 3kW Kit -->
+                    <div class="product-card residential bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl shadow-lg overflow-hidden border border-yellow-200 card-hover">
+                        <div class="relative">
+                            <div class="h-48 overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                    alt="3kW residential solar panel system on house roof" 
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src='https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Solar panels on residential rooftop';"
+                                />
+                            </div>
+                            <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Best Seller
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Residential 3kW Solar Kit</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Perfect for small homes. Includes 12 x 250W panels, inverter, mounting system, and all accessories.</p>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Power Output:</span>
+                                    <span class="font-medium">3kW</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Monthly Generation:</span>
+                                    <span class="font-medium">450 units</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Warranty:</span>
+                                    <span class="font-medium">25 years</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-2xl font-bold text-orange-400">₹1,80,000</span>
+                                    <span class="text-sm text-gray-500 line-through ml-2">₹2,10,000</span>
+                                </div>
+                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-medium">14% OFF</span>
+                            </div>
+                            
+                            <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Residential 5kW Kit -->
+                    <div class="product-card residential bg-gradient-to-br from-orange-50 to-red-50 rounded-xl shadow-lg overflow-hidden border border-orange-200 card-hover">
+                        <div class="relative">
+                            <div class="h-48 overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                    alt="5kW residential solar panel system with battery backup" 
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src='https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Modern solar panel installation on residential home';"
+                                />
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Residential 5kW Solar Kit</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Ideal for medium homes. Includes 20 x 250W panels, hybrid inverter, battery backup option.</p>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Power Output:</span>
+                                    <span class="font-medium">5kW</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Monthly Generation:</span>
+                                    <span class="font-medium">750 units</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Warranty:</span>
+                                    <span class="font-medium">25 years</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-2xl font-bold text-orange-400">₹2,85,000</span>
+                                    <span class="text-sm text-gray-500 line-through ml-2">₹3,25,000</span>
+                                </div>
+                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-medium">12% OFF</span>
+                            </div>
+                            
+                            <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Commercial 10kW Kit -->
+                    <div class="product-card commercial bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg overflow-hidden border border-blue-200 card-hover">
+                        <div class="relative">
+                            <div class="h-48 overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                    alt="10kW commercial solar panel installation on business building" 
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Large commercial solar panel array';"
+                                />
+                            </div>
+                            <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Commercial
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Commercial 10kW Solar Kit</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Perfect for small businesses. High-efficiency panels with advanced monitoring system.</p>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Power Output:</span>
+                                    <span class="font-medium">10kW</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Monthly Generation:</span>
+                                    <span class="font-medium">1,500 units</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Warranty:</span>
+                                    <span class="font-medium">25 years</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-2xl font-bold text-orange-400">₹5,40,000</span>
+                                    <span class="text-sm text-gray-500 line-through ml-2">₹6,00,000</span>
+                                </div>
+                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-medium">10% OFF</span>
+                            </div>
+                            
+                            <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Solar Inverter -->
+                    <div class="product-card accessories bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl shadow-lg overflow-hidden border border-green-200 card-hover">
+                        <div class="relative">
+                            <div class="h-48 overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                    alt="Premium solar inverter with digital display and monitoring" 
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src='https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Solar power inverter system';"
+                                />
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Premium Solar Inverter</h3>
+                            <p class="text-gray-600 mb-4 text-sm">High-efficiency MPPT inverter with WiFi monitoring and 10-year warranty.</p>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Capacity:</span>
+                                    <span class="font-medium">5kW</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Efficiency:</span>
+                                    <span class="font-medium">97.5%</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Warranty:</span>
+                                    <span class="font-medium">10 years</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-2xl font-bold text-orange-400">₹45,000</span>
+                                    <span class="text-sm text-gray-500 line-through ml-2">₹52,000</span>
+                                </div>
+                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-medium">13% OFF</span>
+                            </div>
+                            
+                            <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Solar Battery -->
+                    <div class="product-card accessories bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl shadow-lg overflow-hidden border border-purple-200 card-hover">
+                        <div class="relative">
+                            <div class="h-48 overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                    alt="Lithium solar battery storage system with smart BMS" 
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Solar energy storage battery system';"
+                                />
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Lithium Solar Battery</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Long-lasting lithium battery for energy storage with smart BMS protection.</p>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Capacity:</span>
+                                    <span class="font-medium">100Ah</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Voltage:</span>
+                                    <span class="font-medium">12V</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Life Cycles:</span>
+                                    <span class="font-medium">6000+</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-2xl font-bold text-orange-400">₹28,000</span>
+                                    <span class="text-sm text-gray-500 line-through ml-2">₹32,000</span>
+                                </div>
+                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-medium">12% OFF</span>
+                            </div>
+                            
+                            <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Commercial 25kW Kit -->
+                    <div class="product-card commercial bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl shadow-lg overflow-hidden border border-indigo-200 card-hover">
+                        <div class="relative">
+                            <div class="h-48 overflow-hidden">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                    alt="25kW enterprise solar panel installation on large commercial building" 
+                                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                    onerror="this.src='https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'; this.alt='Large scale commercial solar farm installation';"
+                                />
+                            </div>
+                            <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Enterprise
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Commercial 25kW Solar Kit</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Enterprise-grade solution for large businesses with advanced monitoring and maintenance.</p>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Power Output:</span>
+                                    <span class="font-medium">25kW</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Monthly Generation:</span>
+                                    <span class="font-medium">3,750 units</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Warranty:</span>
+                                    <span class="font-medium">25 years</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-2xl font-bold text-orange-400">₹12,50,000</span>
+                                    <span class="text-sm text-gray-500 line-through ml-2">₹14,00,000</span>
+                                </div>
+                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded text-sm font-medium">11% OFF</span>
+                            </div>
+                            
+                            <button onclick="showPage('contact')" class="w-full bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold py-3 rounded-lg transition-all duration-300">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center mt-16">
+                    <div class="bg-gradient-to-r from-orange-400 to-yellow-500 rounded-2xl p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Need a Custom Solar Solution?</h3>
+                        <p class="text-lg mb-6 text-orange-100">
+                            Our experts can design a personalized solar system based on your specific requirements and budget.
+                        </p>
+                        <button onclick="showPage('contact')" class="bg-white text-orange-500 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+                            Get Custom Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="page-section">
+        <section class="pt-24 pb-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Hero Section -->
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Saur Mandal Solar</h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Leading the solar revolution in India since 2015. We're committed to making clean, renewable energy accessible to everyone through innovative solutions and exceptional service.
+                    </p>
+                </div>
+
+                <!-- Company Story -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Founded in 2015 in the beautiful coastal city of Ratnagiri, Maharashtra, Saur Mandal Solar began with a simple mission: to harness the abundant solar energy of India and make it accessible to every home and business.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-6">
+                            What started as a small team of passionate engineers has grown into one of India's most trusted solar energy companies. We've installed over 25MW of solar capacity across residential, commercial, and industrial projects, helping thousands of customers reduce their carbon footprint while saving money.
+                        </p>
+                        <p class="text-lg text-gray-600">
+                            Today, we continue to innovate and expand our services, always staying true to our core values of quality, reliability, and customer satisfaction.
+                        </p>
+                    </div>
+                    <div class="lg:pl-8">
+                        <div class="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl p-8 border border-yellow-200">
+                            <svg class="w-full h-64 solar-panel-animation" viewBox="0 0 400 300">
+                                <!-- Enhanced solar panels illustration -->
+                                <defs>
+                                    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <rect x="50" y="100" width="80" height="60" rx="4" fill="url(#panelGrad)"/>
+                                <rect x="140" y="100" width="80" height="60" rx="4" fill="url(#panelGrad)"/>
+                                <rect x="230" y="100" width="80" height="60" rx="4" fill="url(#panelGrad)"/>
+                                
+                                <!-- Grid lines on panels -->
+                                <g stroke="white" stroke-width="1" opacity="0.5">
+                                    <line x1="70" y1="100" x2="70" y2="160"/>
+                                    <line x1="90" y1="100" x2="90" y2="160"/>
+                                    <line x1="110" y1="100" x2="110" y2="160"/>
+                                    <line x1="160" y1="100" x2="160" y2="160"/>
+                                    <line x1="180" y1="100" x2="180" y2="160"/>
+                                    <line x1="200" y1="100" x2="200" y2="160"/>
+                                    <line x1="250" y1="100" x2="250" y2="160"/>
+                                    <line x1="270" y1="100" x2="270" y2="160"/>
+                                    <line x1="290" y1="100" x2="290" y2="160"/>
+                                </g>
+                                
+                                <!-- Animated sun -->
+                                <circle cx="320" cy="60" r="25" fill="#fbbf24">
+                                    <animate attributeName="fill" values="#fbbf24;#f59e0b;#fbbf24" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <g fill="#fbbf24">
+                                    <path d="M320 20 L325 35 L320 30 L315 35 Z"/>
+                                    <path d="M360 60 L345 65 L350 60 L345 55 Z"/>
+                                    <path d="M320 100 L315 85 L320 90 L325 85 Z"/>
+                                    <path d="M280 60 L295 55 L290 60 L295 65 Z"/>
+                                </g>
+                                
+                                <!-- House with solar panels -->
+                                <path d="M80 200 L200 200 L200 250 L80 250 Z" fill="#e5e7eb" stroke="#374151" stroke-width="2"/>
+                                <path d="M70 200 L140 160 L210 200" fill="#dc2626" stroke="#374151" stroke-width="2"/>
+                                <rect x="110" y="220" width="20" height="30" fill="#8b5cf6" stroke="#374151" stroke-width="2"/>
+                                <circle cx="120" cy="235" r="2" fill="#fbbf24"/>
+                                
+                                <!-- Energy flow lines -->
+                                <g stroke="#10b981" stroke-width="2" fill="none" opacity="0.7">
+                                    <path d="M90 100 Q 90 80 120 70">
+                                        <animate attributeName="stroke-dasharray" values="0,100;10,90;0,100" dur="1.5s" repeatCount="indefinite"/>
+                                    </path>
+                                    <path d="M180 100 Q 180 80 150 70">
+                                        <animate attributeName="stroke-dasharray" values="0,100;10,90;0,100" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+                                    </path>
+                                    <path d="M270 100 Q 270 80 200 70">
+                                        <animate attributeName="stroke-dasharray" values="0,100;10,90;0,100" dur="1.5s" begin="1s" repeatCount="indefinite"/>
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="bg-gradient-to-r from-orange-400 to-yellow-500 rounded-2xl p-8 md:p-12 text-white mb-20">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold mb-4">Our Impact in Numbers</h2>
+                        <p class="text-orange-100 text-lg">Making a difference, one solar installation at a time</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl font-bold mb-2">500+</div>
+                            <div class="text-orange-100">Projects Completed</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">25MW+</div>
+                            <div class="text-orange-100">Total Capacity Installed</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">8+</div>
+                            <div class="text-orange-100">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold mb-2">99%</div>
+                            <div class="text-orange-100">Customer Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission & Vision -->
+                <div class="grid md:grid-cols-2 gap-12 mb-20">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 border border-blue-200">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                        <p class="text-gray-600">
+                            To accelerate India's transition to clean energy by providing high-quality, affordable solar solutions that empower individuals and businesses to reduce their carbon footprint while achieving energy independence.
+                        </p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8 border border-green-200">
+                        <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                        <p class="text-gray-600">
+                            To be India's most trusted solar energy company, leading the way in sustainable technology innovation and creating a cleaner, greener future for generations to come.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Values Section -->
+                <div class="mb-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+                        <p class="text-lg text-gray-600">The principles that guide everything we do</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-xl border border-yellow-200">
+                            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Quality Excellence</h3>
+                            <p class="text-gray-600">We use only premium components and maintain the highest installation standards</p>
+                        </div>
+
+                        <div class="text-center bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-200">
+                            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Customer First</h3>
+                            <p class="text-gray-600">Your satisfaction is our priority, from consultation to long-term support</p>
+                        </div>
+
+                        <div class="text-center bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.66c.03-.08.06-.17.09-.25C6.84 17.25 9 15 12 15s5.16 2.25 6.25 4.09c.03.08.06.17.09.25l.95 2.66 1.89-.66C18.1 16.17 16 10 17 8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">Sustainability</h3>
+                            <p class="text-gray-600">Committed to environmental responsibility in everything we do</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 md:p-12">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Meet Our Expert Team</h2>
+                        <p class="text-lg text-gray-600">Passionate professionals dedicated to your solar success</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center bg-white rounded-xl p-6 shadow-lg">
+                            <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">RS</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Rajesh Sharma</h3>
+                            <p class="text-orange-500 font-medium mb-3">Founder & CEO</p>
+                            <p class="text-gray-600 text-sm">15+ years in renewable energy. Leading the vision for sustainable solar solutions across India.</p>
+                        </div>
+
+                        <div class="text-center bg-white rounded-xl p-6 shadow-lg">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">PK</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Priya Kulkarni</h3>
+                            <p class="text-orange-500 font-medium mb-3">Chief Engineer</p>
+                            <p class="text-gray-600 text-sm">Expert in solar system design and installation. Ensures every project meets the highest technical standards.</p>
+                        </div>
+
+                        <div class="text-center bg-white rounded-xl p-6 shadow-lg">
+                            <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl font-bold text-white">AM</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Amit Mehta</h3>
+                            <p class="text-orange-500 font-medium mb-3">Operations Manager</p>
+                            <p class="text-gray-600 text-sm">Oversees project execution and customer service. Committed to delivering exceptional experiences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center mt-16">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Join Our Solar Family?</h2>
+                    <p class="text-lg text-gray-600 mb-8">Let's work together to create a sustainable future with clean solar energy</p>
+                    <button onclick="showPage('contact')" class="bg-gradient-to-r from-orange-400 to-yellow-500 hover:from-orange-500 hover:to-yellow-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg">
+                        Start Your Solar Journey
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page-section">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-orange-300 to-orange-400 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h1>
+                    <p class="text-xl text-orange-100 max-w-3xl mx-auto">
+                        Ready to start your solar journey? Get a free consultation and personalized quote for your solar installation. Our experts are here to help you every step of the way.
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div>
+                        <h2 class="text-3xl font-semibold mb-6">Get Your Free Quote</h2>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="First Name" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-yellow-400 focus:outline-none text-white placeholder-white/70 backdrop-blur-sm">
+                                <input type="text" placeholder="Last Name" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-yellow-400 focus:outline-none text-white placeholder-white/70 backdrop-blur-sm">
+                            </div>
+                            <input type="email" placeholder="Email Address" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-yellow-400 focus:outline-none text-white placeholder-white/70 backdrop-blur-sm">
+                            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-yellow-400 focus:outline-none text-white placeholder-white/70 backdrop-blur-sm">
+                            <select class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-yellow-400 focus:outline-none text-white backdrop-blur-sm">
+                                <option value="" class="text-gray-900">Select Service Type</option>
+                                <option value="residential" class="text-gray-900">Residential Solar</option>
+                                <option value="commercial" class="text-gray-900">Commercial Solar</option>
+                                <option value="industrial" class="text-gray-900">Industrial Solar</option>
+                                <option value="maintenance" class="text-gray-900">Maintenance & Support</option>
+                            </select>
+                            <textarea placeholder="Tell us about your project..." rows="4" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-yellow-400 focus:outline-none text-white placeholder-white/70 resize-none backdrop-blur-sm"></textarea>
+                            <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-3 rounded-lg transition-colors shadow-lg">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div>
+                        <h2 class="text-3xl font-semibold mb-6">Contact Information</h2>
+                        
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mt-1 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">Our Location</h3>
+                                    <p class="text-orange-100">Ratnagiri, Maharashtra, India</p>
+                                    <p class="text-orange-100 text-sm">Serving customers across India</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mt-1 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">Phone</h3>
+                                    <p class="text-orange-100">+91 98765 43210</p>
+                                    <p class="text-orange-100 text-sm">Available 24/7 for emergencies</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mt-1 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">Email</h3>
+                                    <p class="text-orange-100">info@saurmandalsolar.com</p>
+                                    <p class="text-orange-100 text-sm">We'll respond within 24 hours</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mt-1 mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                    <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-1">Business Hours</h3>
+                                    <div class="text-orange-100 text-sm space-y-1">
+                                        <p>Mon-Fri: 8AM-6PM</p>
+                                        <p>Sat: 9AM-4PM</p>
+                                        <p>Sun: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Installation Image -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <img 
+                                src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" 
+                                alt="Professional solar panel installation team working on residential rooftop" 
+                                class="w-full h-64 object-cover"
+                                onerror="this.src=''; this.alt='Solar installation image failed to load'; this.style.display='none'; this.nextElementSibling.style.display='block';"
+                            />
+                            <!-- Fallback content if image fails to load -->
+                            <div class="hidden w-full h-64 bg-gradient-to-br from-blue-400 to-orange-400 flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <div class="text-4xl mb-2">🔧⚡</div>
+                                    <div class="text-lg font-semibold">Professional Installation</div>
+                                    <div class="text-sm opacity-80">Expert Solar Panel Setup</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Overlay with installation highlights -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            
+                            <!-- Installation features -->
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="grid grid-cols-2 gap-3 text-white text-sm">
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                                        <div class="font-semibold">✅ Certified</div>
+                                        <div class="text-xs opacity-90">Expert Technicians</div>
+                                    </div>
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                                        <div class="font-semibold">⚡ Fast</div>
+                                        <div class="text-xs opacity-90">1-3 Day Install</div>
+                                    </div>
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                                        <div class="font-semibold">🛡️ Safe</div>
+                                        <div class="text-xs opacity-90">Safety Standards</div>
+                                    </div>
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                                        <div class="font-semibold">📋 Warranty</div>
+                                        <div class="text-xs opacity-90">25 Year Coverage</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us Section -->
+                <div class="mt-20 bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold mb-4">Why Choose Saur Mandal Solar?</h2>
+                        <p class="text-orange-100 text-lg">Experience the difference of working with India's trusted solar experts</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9l-5.91 5.74L17.18 22 12 19.27 6.82 22l1.09-7.26L2 9l6.91-1.74L12 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Premium Quality</h3>
+                            <p class="text-orange-100">Only the best components with 25-year warranties</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Expert Team</h3>
+                            <p class="text-orange-100">Certified professionals with 8+ years experience</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Complete Support</h3>
+                            <p class="text-orange-100">From consultation to maintenance, we're with you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand Section -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4 cursor-pointer" onclick="showPage('home')">
+                        <span class="text-3xl mr-3">☀️</span>
+                        <div>
+                            <div class="text-xl font-bold text-white">Saur Mandal Solar</div>
+                            <div class="text-sm text-gray-400">Clean Energy Solutions</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Leading solar energy solutions in Ratnagiri and across India
+                    </p>
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/saurmandalsolar" target="_blank" class="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/saurmandalsolar" target="_blank" class="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323C6.001 8.198 7.152 7.708 8.449 7.708s2.448.49 3.323 1.416c.875.926 1.365 2.077 1.365 3.374s-.49 2.448-1.365 3.323c-.875.875-2.026 1.167-3.323 1.167zm7.718 0c-1.297 0-2.448-.292-3.323-1.167-.875-.875-1.365-2.026-1.365-3.323s.49-2.448 1.365-3.374c.875-.926 2.026-1.416 3.323-1.416s2.448.49 3.323 1.416c.875.926 1.365 2.077 1.365 3.374s-.49 2.448-1.365 3.323c-.875.875-2.026 1.167-3.323 1.167z"/>
+                            </svg>
+                        </a>
+                        <a href="https://maps.google.com/saurmandalsolar" target="_blank" class="w-10 h-10 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center transition-colors">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Our Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="showPage('services')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Residential Solar</a></li>
+                        <li><a href="#" onclick="showPage('services')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Commercial Solar</a></li>
+                        <li><a href="#" onclick="showPage('services')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Industrial Solar</a></li>
+                        <li><a href="#" onclick="showPage('services')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Maintenance</a></li>
+                        <li><a href="#" onclick="showPage('products')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Solar Products</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="showPage('about')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">About Us</a></li>
+                        <li><a href="#" onclick="showPage('about')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Our Team</a></li>
+                        <li><a href="#" onclick="showPage('home')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Why Choose Solar</a></li>
+                        <li><a href="#" onclick="showPage('contact')" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Get In Touch</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-yellow-400 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span class="text-gray-400 text-sm">Ratnagiri, Maharashtra, India</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            <span class="text-gray-400 text-sm">+91 98765 43210</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <span class="text-gray-400 text-sm">info@saurmandalsolar.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2024 Saur Mandal Solar. All rights reserved.
+                    </div>
+                    <div class="flex items-center space-x-4 text-sm text-gray-400">
+                        <span>🌱 Powering a Sustainable Future</span>
+                        <span>•</span>
+                        <span>⚡ Clean Energy for All</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation system
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Update navigation active states
+            updateNavigation(pageId);
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('hidden');
+        }
+
+        function updateNavigation(activePageId) {
+            // Update desktop navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-gray-900');
+                link.classList.add('text-gray-600');
+            });
+            
+            // Set active link
+            const activeLink = document.querySelector(`[onclick="showPage('${activePageId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.remove('text-gray-600');
+                activeLink.classList.add('text-gray-900');
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Product filtering
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter products
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block';
+                    product.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = '✅ Message Sent Successfully!';
+            button.classList.remove('bg-yellow-400', 'hover:bg-yellow-500');
+            button.classList.add('bg-green-500');
+            
+            // Reset form
+            this.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('bg-green-500');
+                button.classList.add('bg-yellow-400', 'hover:bg-yellow-500');
+            }, 3000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-xl');
+                nav.classList.remove('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-xl');
+                nav.classList.add('shadow-lg');
+            }
+        });
+
+        // Enhanced Solar Calculator Functions
+        function updateBillDisplay() {
+            const bill = document.getElementById('monthlyBill').value;
+            document.getElementById('billDisplay').textContent = formatNumber(bill);
+        }
+
+        function updateAreaDisplay() {
+            const area = document.getElementById('roofArea').value;
+            document.getElementById('areaDisplay').textContent = area;
+        }
+
+        function updateRateDisplay() {
+            const rate = document.getElementById('electricityRate').value;
+            document.getElementById('rateDisplay').textContent = rate;
+        }
+
+        function calculateSolar() {
+            const monthlyBill = parseFloat(document.getElementById('monthlyBill').value) || 5000;
+            const propertyType = document.querySelector('input[name="propertyType"]:checked').value;
+            const roofArea = parseFloat(document.getElementById('roofArea').value) || 800;
+            const location = document.getElementById('location').value;
+            const systemType = document.querySelector('input[name="systemType"]:checked').value;
+            const electricityRate = parseFloat(document.getElementById('electricityRate').value) || 6;
+
+            // Calculate system size based on monthly bill
+            const monthlyUnits = monthlyBill / electricityRate;
+            const dailyUnits = monthlyUnits / 30;
+            
+            // Get sunlight hours for location
+            const sunlightHours = getSunlightHours(location);
+            let systemSizeKW = Math.ceil(dailyUnits / sunlightHours);
+            
+            // Adjust for property type
+            const propertyMultiplier = {
+                'residential': 1,
+                'commercial': 1.2,
+                'industrial': 1.5
+            };
+            systemSizeKW *= propertyMultiplier[propertyType];
+            
+            // Check roof area constraint (100 sq ft per kW approximately)
+            const maxSystemSize = Math.floor(roofArea / 100);
+            systemSizeKW = Math.min(systemSizeKW, maxSystemSize);
+            systemSizeKW = Math.max(systemSizeKW, 1); // Minimum 1kW
+            
+            // Calculate costs
+            const costPerKW = systemType === 'hybrid' ? 85000 : 60000;
+            let systemCost = systemSizeKW * costPerKW;
+            
+            // Apply government subsidy for residential systems
+            let subsidy = 0;
+            if (propertyType === 'residential' && systemSizeKW <= 10) {
+                subsidy = Math.min(systemSizeKW * 18000, 78000); // ₹18k per kW up to ₹78k
+                systemCost -= subsidy;
+            }
+            
+            // Calculate generation and savings
+            const monthlyGeneration = systemSizeKW * sunlightHours * 30;
+            const monthlySavings = Math.min(monthlyGeneration * electricityRate, monthlyBill * 0.95);
+            const savingsPercentage = Math.round((monthlySavings / monthlyBill) * 100);
+            
+            // Calculate payback period
+            const paybackYears = systemCost / (monthlySavings * 12);
+            
+            // Calculate 25-year savings (accounting for electricity rate inflation)
+            const inflationRate = 0.06; // 6% annual electricity rate increase
+            let totalSavings = 0;
+            for (let year = 1; year <= 25; year++) {
+                const yearlyRate = electricityRate * Math.pow(1 + inflationRate, year - 1);
+                const yearlySavings = Math.min(monthlyGeneration * 12 * yearlyRate, monthlyBill * 12 * Math.pow(1 + inflationRate, year - 1) * 0.95);
+                totalSavings += yearlySavings;
+            }
+            totalSavings -= systemCost;
+            
+            // Calculate ROI
+            const roi = Math.round((totalSavings / systemCost) * 100);
+            
+            // Calculate CO2 reduction (0.82 kg CO2 per kWh)
+            const co2Reduction = Math.round((monthlyGeneration * 12 * 25 * 0.82) / 1000);
+            
+            // Calculate trees equivalent (1 tree absorbs ~40kg CO2 per year)
+            const treesEquivalent = Math.round((co2Reduction * 1000) / 40);
+            
+            // Calculate net metering rate (typically 60% of retail rate)
+            const netMeteringRate = (electricityRate * 0.6).toFixed(1);
+            
+            // Calculate panel details
+            const panelWattage = 250; // Assuming 250W panels
+            const numPanels = Math.ceil((systemSizeKW * 1000) / panelWattage);
+
+            // Update display
+            document.getElementById('systemSize').textContent = systemSizeKW + ' kW';
+            document.getElementById('systemDetails').textContent = `${numPanels} panels × ${panelWattage}W each`;
+            document.getElementById('systemCost').textContent = '₹' + formatNumber(systemCost);
+            document.getElementById('monthlyGeneration').textContent = Math.round(monthlyGeneration) + ' units';
+            document.getElementById('monthlySavings').textContent = '₹' + formatNumber(monthlySavings);
+            document.getElementById('savingsPercentage').textContent = savingsPercentage + '%';
+            document.getElementById('paybackPeriod').textContent = paybackYears.toFixed(1) + ' years';
+            document.getElementById('totalSavings').textContent = '₹' + formatNumber(totalSavings);
+            document.getElementById('roi').textContent = roi + '%';
+            document.getElementById('co2Reduction').textContent = co2Reduction + ' tons';
+            document.getElementById('netMeteringRate').textContent = netMeteringRate;
+            document.getElementById('treesEquivalent').textContent = formatNumber(treesEquivalent);
+            
+            // Update property type selection styling
+            updatePropertyTypeSelection();
+            updateSystemTypeSelection();
+        }
+
+        function updatePropertyTypeSelection() {
+            const propertyOptions = document.querySelectorAll('.property-option');
+            propertyOptions.forEach(option => {
+                const input = option.querySelector('input[type="radio"]');
+                const card = option.querySelector('.property-card');
+                if (input.checked) {
+                    card.classList.remove('border-gray-200');
+                    card.classList.add('border-orange-400', 'bg-orange-50');
+                } else {
+                    card.classList.remove('border-orange-400', 'bg-orange-50');
+                    card.classList.add('border-gray-200');
+                }
+            });
+        }
+
+        function updateSystemTypeSelection() {
+            const systemOptions = document.querySelectorAll('.system-option');
+            systemOptions.forEach(option => {
+                const input = option.querySelector('input[type="radio"]');
+                const card = option.querySelector('.system-card');
+                if (input.checked) {
+                    card.classList.remove('border-gray-200');
+                    card.classList.add('border-orange-400', 'bg-orange-50');
+                } else {
+                    card.classList.remove('border-orange-400', 'bg-orange-50');
+                    card.classList.add('border-gray-200');
+                }
+            });
+        }
+
+        function getSunlightHours(location) {
+            const sunlightMap = {
+                'maharashtra': 4.5,
+                'gujarat': 5.2,
+                'rajasthan': 5.8,
+                'karnataka': 4.8,
+                'tamilnadu': 4.6,
+                'andhra': 5.0,
+                'telangana': 5.1,
+                'punjab': 4.9,
+                'haryana': 5.0,
+                'other': 4.5
+            };
+            return sunlightMap[location] || 4.5;
+        }
+
+        function formatNumber(num) {
+            if (num >= 10000000) {
+                return (num / 10000000).toFixed(1) + ' Cr';
+            } else if (num >= 100000) {
+                return (num / 100000).toFixed(1) + ' L';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(0) + 'K';
+            }
+            return Math.round(num).toLocaleString('en-IN');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+            calculateSolar(); // Initialize calculator with default values
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9760c3e5c28df08d',t:'MTc1NjM1MjE5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
